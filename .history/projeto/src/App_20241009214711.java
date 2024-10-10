@@ -11,10 +11,10 @@ public class App {
         long [] arr_tempos = new long[5] ;
         for (int i = 0; i <= arr_tempos.length-1; i++) {
             long tempo = getTempoMergeSortParalelo(arr, 4);
-            // System.out.println(tempo);
+            Sytem.out.print()
             arr_tempos[i] = tempo;
         }
-        // System.out.println(arr_tempos[0]);
+        System.out.println(arr_tempos);
         times.put("Merge Sort Paralelo", arr_tempos);
         System.out.println(times.get("Merge Sort Paralelo"));
 

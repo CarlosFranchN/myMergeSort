@@ -5,18 +5,15 @@ import java.util.HashMap;
 public class App {
     @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
-        HashMap<String, long[]> times = new HashMap<String, long[]>();
+        HashMap<String, int[]> times = new HashMap<String, int[]>();
         // int[] arr = {38, 27, 43, 3, 9, 82, 10}; // Array de exemplo
         int[] arr = gerarArrayAleatorio(100);
-        long [] arr_tempos = new long[5] ;
-        for (int i = 0; i <= arr_tempos.length-1; i++) {
+        int [] arr_tempos = [5];
+        for (int i = 0; i <= 5; i++) {
             long tempo = getTempoMergeSortParalelo(arr, 4);
-            // System.out.println(tempo);
-            arr_tempos[i] = tempo;
+            times.put("Merge Sort Paralelo", tempo);
         }
-        // System.out.println(arr_tempos[0]);
-        times.put("Merge Sort Paralelo", arr_tempos);
-        System.out.println(times.get("Merge Sort Paralelo"));
+        System.out.println(times);
 
         // System.out.println(getTempoMergeSortParalelo(arr, 4));
 

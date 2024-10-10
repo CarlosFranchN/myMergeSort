@@ -14,7 +14,7 @@ public class App {
             // System.out.println(tempo);
             arr_tempos[i] = tempo;
         }
-        // System.out.println(arr_tempos[0]);
+        System.out.println(arr_tempos[0]);
         times.put("Merge Sort Paralelo", arr_tempos);
         System.out.println(times.get("Merge Sort Paralelo"));
 

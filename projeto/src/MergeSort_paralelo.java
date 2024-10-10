@@ -11,7 +11,7 @@ public class MergeSort_paralelo extends RecursiveAction {
         this.array = array;
         this.left = left;
         this.right = right;
-        this.time = 0;
+        MergeSort_paralelo.time = 0;
     }
 
     @Override
@@ -23,12 +23,52 @@ public class MergeSort_paralelo extends RecursiveAction {
             MergeSort_paralelo leftTask = new MergeSort_paralelo(array, mid+1, right);
         
             invokeAll(leftTask,rightTask);
-            mergeSort.merge(array, left, mid, right);
+            merge(array, left, mid, right);
             long fim  = System.nanoTime();
             time = fim - inicio;
         }
     }
-    public static long get_Time(){
+    public long get_Time(){
         return time;
     }
+
+    public static int[] merge(int[] a, int left, int mid, int right) {
+        int b[] = new int[a.length];
+        int i = left;
+        int j = mid+1;
+        int k = left;
+
+
+
+
+        while (i<=mid && j <=right) {
+            if(a[i] < a[j]){
+                b[k] = a[i];
+                i++;
+            }
+            else{
+                b[k] = a[j];
+                j++;
+            }
+            k++;
+        }
+            if (i>mid) {
+                while (j<=right) {
+                    b[k]=a[j];
+                    k++;
+                    j++;
+                }
+            }else{
+                while (i<=mid) {
+                    b[k]=a[i];
+                    k++;
+                    i++;
+                }
+            }
+            for(k=left;k<=right;k++){
+                a[k] = b[k];
+            }
+            return a;
+        }
+        
 }
